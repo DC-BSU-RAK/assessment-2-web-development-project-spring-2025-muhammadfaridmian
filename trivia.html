@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minecraft Trivia | The Minecraft Chronicles</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="header-content">
+            <h1 id="title">The Minecraft Chronicles</h1>
+        </div>
+    </header>
+
+    <nav class="main-nav">
+        <div class="nav-links">
+            <a href="index.html" class="nav-link"><i class="fas fa-home"></i> Home</a>
+            <a href="history.html" class="nav-link"><i class="fas fa-history"></i> History</a>
+            <a href="mechanics.html" class="nav-link"><i class="fas fa-cogs"></i> Mechanics</a>
+            <a href="trivia.html" class="nav-link active"><i class="fas fa-question-circle"></i> Trivia</a>
+            <a href="about.html" class="nav-link"><i class="fas fa-info-circle"></i> About</a>
+        </div>
+    </nav>
+
+    <main class="trivia-main">
+        <section class="trivia-hero">
+            <div class="hero-image-container">
+                <img src="trivia-image.jpg" alt="Minecraft Trivia" class="hero-image">
+                <div class="hero-overlay"></div>
+            </div>
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Minecraft Trivia</h1>
+                    <h2>Fun Facts and Hidden Secrets</h2>
+                    <p>Discover the most interesting, obscure, and surprising facts about Minecraft that even veteran players might not know!</p>
+                </div>
+        </section>
+
+        <section class="trivia-categories">
+            <div class="section-header">
+                <h2 class="section-title">Trivia Categories</h2>
+                <div class="section-subtitle">Explore different aspects of Minecraft lore</div>
+            </div>
+            
+            <div class="category-grid">
+                <div class="category-card" style="--delay:0.2s">
+                    <div class="category-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Development Trivia</h3>
+                    <p>Interesting facts about how Minecraft was created and evolved</p>
+                    <div class="category-badge">Behind Scenes</div>
+                </div>
+                
+                <div class="category-card" style="--delay:0.4s">
+                    <div class="category-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Version Differences</h3>
+                    <p>How Java and Bedrock editions vary in unexpected ways</p>
+                    <div class="category-badge">Edition Wars</div>
+                </div>
+                
+                <div class="category-card" style="--delay:0.6s">
+                    <div class="category-icon">
+                        <i class="fas fa-ghost"></i>
+                    </div>
+                    <h3>Easter Eggs</h3>
+                    <p>Hidden secrets and references scattered throughout the game</p>
+                    <div class="category-badge3">Secrets</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="fun-facts">
+            <div class="section-header">
+                <h2 class="section-title">Did You Know?</h2>
+                <div class="section-subtitle">Surprising Minecraft Facts</div>
+            </div>
+            
+            <div class="facts-accordion">
+                <div class="fact-item">
+                    <input type="checkbox" id="fact1" class="fact-checkbox">
+                    <label for="fact1" class="fact-header">
+                        <div class="fact-icon">
+                            <i class="fas fa-seedling"></i>
+                        </div>
+                        <h3>The first version of Minecraft was created in just 6 days</h3>
+                        <div class="fact-toggle">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </label>
+                    <div class="fact-content">
+                        <p>Markus "Notch" Persson developed the initial prototype of Minecraft (then called "Cave Game") in one week during May 2009. The first public version was released on May 17, 2009.</p>
+                    </div>
+                </div>
+                
+                <div class="fact-item">
+                    <input type="checkbox" id="fact2" class="fact-checkbox">
+                    <label for="fact2" class="fact-header">
+                        <div class="fact-icon">
+                            <i class="fas fa-paint-brush"></i>
+                        </div>
+                        <h3>Creepers were created by accident</h3>
+                        <div class="fact-toggle">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </label>
+                    <div class="fact-content">
+                        <p>The iconic Creeper was the result of a coding error when Notch was trying to create a pig model. The mistaken proportions led to this now-famous hostile mob.</p>
+                    </div>
+                </div>
+                
+                <div class="fact-item">
+                    <input type="checkbox" id="fact3" class="fact-checkbox">
+                    <label for="fact3" class="fact-header">
+                        <div class="fact-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <h3>Minecraft's world is larger than Neptune</h3>
+                        <div class="fact-toggle">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </label>
+                    <div class="fact-content">
+                        <p>A Minecraft world stretches 30 million blocks in each direction, making the playable area larger than the surface area of Neptune (if each block equals 1 square meter).</p>
+                    </div>
+                </div>
+                
+                <div class="fact-item">
+                    <input type="checkbox" id="fact4" class="fact-checkbox">
+                    <label for="fact4" class="fact-header">
+                        <div class="fact-icon">
+                            <i class="fas fa-music"></i>
+                        </div>
+                        <h3>The soundtrack was recorded in a cave</h3>
+                        <div class="fact-toggle">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </label>
+                    <div class="fact-content">
+                        <p>Composer C418 recorded parts of Minecraft's ambient soundtrack in a cave to capture the natural reverb and atmosphere that matches the game's underground exploration.</p>
+                    </div>
+                </div>
+                
+                <div class="fact-item">
+                    <input type="checkbox" id="fact5" class="fact-checkbox">
+                    <label for="fact5" class="fact-header">
+                        <div class="fact-icon">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <h3>There's an official Minecraft religion</h3>
+                        <div class="fact-toggle">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </label>
+                    <div class="fact-content">
+                        <p>In 2012, the Church of Maradonia recognized Minecraft as an official religion in Sweden, calling it "the best way to show the complexity and beauty of creation."</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="quote-section">
+            <div class="section-header">
+                <h2 class="section-title">Notable Quotes</h2>
+                <div class="section-subtitle">Wisdom from Minecraft's creators</div>
+            </div>
+            
+            <div class="quote-grid">
+                <div class="quote-card">
+                    <div class="quote-text">
+                        <p>"I wanted to make a game where the player could build anything. I didn't expect it to become this big."</p>
+                    </div>
+                    <div class="quote-author">
+                        <div class="author-info">
+                            <h4>Markus Persson</h4>
+                            <p>Creator of Minecraft</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="quote-card">
+                    <div class="quote-text">
+                        <p>"Minecraft is more than a game. It's a creative tool that has changed how we think about digital spaces."</p>
+                    </div>
+                    <div class="quote-author">
+                        <div class="author-info">
+                            <h4>Jens Bergensten</h4>
+                            <p>Lead Developer</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="quote-card">
+                    <div class="quote-text">
+                        <p>"The beauty of Minecraft is that it's a blank canvas. Every player creates their own story."</p>
+                    </div>
+                    <div class="quote-author">
+                        <div class="author-info">
+                            <h4>Daniel Rosenfeld</h4>
+                            <p>Composer (C418)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="record-section">
+            <div class="section-header">
+                <h2 class="section-title">Minecraft Records</h2>
+                <div class="section-subtitle">Impressive achievements in the Minecraft world</div>
+            </div>
+            
+            <div class="record-cards">
+                <div class="record-card">
+                    <div class="record-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <div class="record-content">
+                        <h3>Largest Minecraft Structure</h3>
+                        <p>The "Titan City" project spans over 1.5 million blocks and took 2.5 years to build</p>
+                    </div>
+                </div>
+                
+                <div class="record-card">
+                    <div class="record-icon">
+                        <i class="fas fa-stopwatch"></i>
+                    </div>
+                    <div class="record-content">
+                        <h3>Fastest Speedrun</h3>
+                        <p>Minecraft speedrun world records in 2025 have been achieved by two amazing players. Java world record holder is "drip120" with his amazing run of only 7 minutes and 1 second</p>
+                    </div>
+                </div>
+                
+                <div class="record-card">
+                    <div class="record-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="record-content">
+                        <h3>Most Players Online</h3>
+                        <p>Over 1 million concurrent players during Minecraft Live 2020</p>
+                    </div>
+                </div>
+                
+                <div class="record-card">
+                    <div class="record-icon">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <div class="record-content">
+                        <h3>Largest Server</h3>
+                        <p>Hypixel averages over 100,000 concurrent players daily</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <span>The Minecraft Chronicles</span>
+            </div>
+            <p>&copy; 2025 All Rights Reserved</p>
+            <div class="social-links">
+                <a href="https://x.com/Minecraft?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.youtube.com/Minecraft" target="_blank"><i class="fab fa-youtube"></i></a>
+                <div class="minecraft-icon">
+                    <i class="fas fa-cube"></i>
+                </div>
+                <a href="https://discord.com/invite/5PFyQzR4fb" target="_blank"><i class="fab fa-discord"></i></a>
+                <a href="https://www.reddit.com/r/Minecraft/" target="_blank"><i class="fab fa-reddit"></i></a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

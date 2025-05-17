@@ -1,0 +1,1897 @@
+/* Base Styles */
+@font-face {
+    font-family: 'minecraft-font';
+    src: url('MinecraftTen-VGORe.ttf');
+}
+
+@font-face {
+    font-family: 'minecraft-regular';
+    src: url('MinecraftRegular-Bmg3.otf');
+}
+
+:root {
+    --primary: #5a8f3d;
+    --primary-dark: #3d5a1f;
+    --secondary: #ffaa00;
+    --accent: #b22222;
+    --dark: #0a0a0a;
+    --darker: #050505;
+    --light: #ffffff;
+    --gray: #333333;
+    --light-gray: #cccccc;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--dark);
+    color: var(--light);
+    font-family: 'minecraft-regular', sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Header Styles */
+.main-header {
+    background-color: var(--primary);
+    padding: 1.5rem 0;
+    text-align: center;
+    border-bottom: 5px solid #000;
+    position: relative;
+    animation: headerGrow 1s ease-out;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.header-content {
+    position: relative;
+}
+
+.header-decoration {
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 5px;
+}
+
+@keyframes headerGrow {
+    from {
+        transform: scale(0.95);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+#title {
+    font-family: 'minecraft-font';
+    font-size: 2.5rem;
+    color: white;
+    text-shadow: 3px 3px 0 #000;
+    transition: transform 0.3s ease;
+    position: relative;
+    display: inline-block;
+}
+
+#title:hover {
+    transform: translateY(-3px);
+    text-shadow: 5px 5px 0 #000;
+}
+
+#title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: var(--secondary);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+#title:hover::after {
+    transform: scaleX(1);
+}
+
+/* Navigation */
+.main-nav {
+    background-color: var(--primary-dark);
+    padding: 1rem 0;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.nav-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    font-family: 'minecraft-regular';
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-link::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--secondary);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: var(--secondary);
+}
+
+.nav-link:hover::before, .nav-link.active::before {
+    transform: scaleX(1);
+}
+
+.nav-link i {
+    font-size: 1.1rem;
+    transition: transform 0.3s ease;
+}
+
+.nav-link:hover i {
+    transform: rotate(10deg);
+}
+
+/* Hero Section */
+.hero-section {
+    position: relative;
+    height: 80vh;
+    min-height: 600px;
+    margin-bottom: 3rem;
+    overflow: hidden;
+}
+
+.hero-image-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    animation: imageGrow 1.6s ease-out forwards;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.7) 100%);
+}
+
+.hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 1200px;
+    text-align: center;
+    z-index: 2;
+    animation: contentFadeIn 2s ease-out forwards;
+}
+
+.hero-text h1 {
+    font-family: 'minecraft-font';
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    margin-bottom: 1rem;
+    color: var(--secondary);
+    text-shadow: 4px 4px 0 #000;
+    line-height: 1.2;
+}
+
+.hero-text h2 {
+    font-family: 'minecraft-regular';
+    font-size: clamp(1.2rem, 3vw, 1.8rem);
+    margin-bottom: 2rem;
+    color: white;
+    text-shadow: 2px 2px 0 #000;
+}
+
+.hero-text p {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    max-width: 800px;
+    margin: 0 auto 2rem;
+    color: var(--light-gray);
+}
+
+.hero-scroll {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-size: 2rem;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0) translateX(-50%); }
+    40% { transform: translateY(-20px) translateX(-50%); }
+    60% { transform: translateY(-10px) translateX(-50%); }
+}
+
+@keyframes imageGrow {
+    from {
+        transform: scale(1.1);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes contentFadeIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -40%);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+
+/* Section Header */
+.section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.section-title {
+    font-family: 'minecraft-font';
+    font-size: 2.5rem;
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+    position: relative;
+    display: inline-block;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background-color: var(--secondary);
+    border-radius: 2px;
+}
+
+.section-subtitle {
+    font-family: 'minecraft-regular';
+    color: var(--light-gray);
+    font-size: 1.2rem;
+}
+
+/* Features Section */
+.features-section {
+    max-width: 1200px;
+    margin: 0 auto 5rem;
+    padding: 0 2rem;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 3rem;
+    margin-top: 2rem;
+}
+
+.feature-card {
+    background-color: rgba(30, 30, 30, 0.9);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    position: relative;
+    animation: fadeInUp 0.8s ease-out forwards;
+    opacity: 0;
+    animation-delay: var(--delay);
+    border-top: 4px solid var(--primary);
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+}
+
+.feature-image {
+    position: relative;
+    height: 250px;
+    overflow: hidden;
+}
+
+.feature-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.7) 100%);
+}
+
+.feature-card:hover .feature-image img {
+    transform: scale(1.05);
+}
+
+.feature-content {
+    padding: 2rem;
+    text-align: center;
+    position: relative;
+}
+
+.feature-icon {
+    font-size: 2.5rem;
+    color: var(--secondary);
+    margin-bottom: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.feature-card:hover .feature-icon {
+    transform: rotate(15deg) scale(1.2);
+}
+
+.feature-content h3 {
+    font-family: 'minecraft-regular';
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: white;
+}
+
+.feature-content p {
+    font-size: 1rem;
+    color: var(--light-gray);
+    margin-bottom: 1.5rem;
+}
+
+.feature-button {
+    display: inline-block;
+    background-color: var(--primary);
+    color: white;
+    padding: 0.7rem 1.5rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-family: 'minecraft-regular';
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.feature-button:hover {
+    background-color: transparent;
+    color: var(--secondary);
+    border-color: var(--secondary);
+    transform: translateY(-3px);
+}
+
+.feature-button i {
+    margin-left: 0.5rem;
+    transition: transform 0.3s ease;
+}
+
+.feature-button:hover i {
+    transform: translateX(5px);
+}
+
+.feature-badge {
+    position: absolute;
+    top: 20px;
+    right: -30px;
+    background-color: var(--accent);
+    color: white;
+    padding: 5px 30px;
+    font-size: 0.8rem;
+    transform: rotate(45deg);
+    width: 120px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 2;
+}
+
+/* Quick Facts Section */
+.quick-facts {
+    max-width: 1200px;
+    margin: 0 auto 5rem;
+    padding: 0 2rem;
+}
+
+.facts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.fact-card {
+    background-color: rgba(30, 30, 30, 0.9);
+    border-radius: 8px;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    border-bottom: 4px solid var(--primary);
+}
+
+.fact-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.fact-icon {
+    font-size: 2rem;
+    color: var(--secondary);
+    margin-bottom: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.fact-card:hover .fact-icon {
+    transform: scale(1.2) rotate(10deg);
+}
+
+.fact-card h3 {
+    font-family: 'minecraft-regular';
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: white;
+}
+
+.fact-card p {
+    font-size: 0.9rem;
+    color: var(--light-gray);
+}
+
+/* Footer */
+.main-footer {
+    background-color: var(--darker);
+    padding: 3rem 0 1.5rem;
+    text-align: center;
+    border-top: 4px solid var(--primary);
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.footer-logo img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid var(--secondary);
+}
+
+.footer-logo span {
+    font-family: 'minecraft-font';
+    font-size: 1.5rem;
+    color: white;
+}
+
+.footer-content p {
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+    color: var(--light-gray);
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.footer-links a {
+    color: var(--light-gray);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+.footer-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--secondary);
+    transition: width 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: white;
+}
+
+.footer-links a:hover::after {
+    width: 100%;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 2rem;
+    position: relative;
+}
+
+.social-links a {
+    color: white;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.social-links a:hover {
+    color: var(--secondary);
+    transform: translateY(-5px);
+    background-color: rgba(255, 170, 0, 0.2);
+}
+
+.minecraft-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--primary);
+    color: white;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.minecraft-icon:hover {
+    transform: rotate(15deg) scale(1.1);
+    background-color: var(--secondary);
+    color: black;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .hero-section {
+        height: 70vh;
+        min-height: 500px;
+    }
+    
+    .features-grid {
+        grid-template-columns: 1fr;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        gap: 0.5rem;
+    }
+    
+    .nav-link {
+        font-size: 0.9rem;
+        padding: 0.3rem 0.6rem;
+    }
+    
+    .hero-section {
+        height: 60vh;
+        min-height: 400px;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .feature-image {
+        height: 200px;
+    }
+}
+
+@media (max-width: 576px) {
+    #title {
+        font-size: 1.8rem;
+    }
+    
+    .nav-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+    }
+    
+    .hero-text h1 {
+        font-size: 2rem;
+    }
+    
+    .hero-text h2 {
+        font-size: 1.2rem;
+    }
+    
+    .facts-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-links {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+    }
+    
+    .section-subtitle {
+        font-size: 1rem;
+    }
+}
+/* Mechanics Page Specific Styles */
+.mechanics-main {
+    background-color: var(--dark);
+    color: var(--light);
+}
+
+.mechanics-hero {
+    position: relative;
+    height: 70vh;
+    min-height: 600px;
+    margin-bottom: 3rem;
+    overflow: hidden;
+}
+
+.mechanics-hero .hero-image-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.mechanics-hero .hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    animation: imageGrow 1.6s ease-out forwards;
+}
+
+.mechanics-hero .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.8) 100%);
+}
+
+.mechanics-hero .hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 1200px;
+    text-align: center;
+    z-index: 2;
+    animation: contentFadeIn 2s ease-out forwards;
+}
+
+.mechanics-hero .hero-text h1 {
+    font-family: 'minecraft-font';
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    margin-bottom: 1rem;
+    color: var(--secondary);
+    text-shadow: 4px 4px 0 #000;
+    line-height: 1.2;
+}
+
+.mechanics-hero .hero-text h2 {
+    font-family: 'minecraft-regular';
+    font-size: clamp(1.2rem, 3vw, 1.8rem);
+    margin-bottom: 2rem;
+    color: white;
+    text-shadow: 2px 2px 0 #000;
+}
+
+.mechanics-hero .hero-text p {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    max-width: 800px;
+    margin: 0 auto 2rem;
+    color: var(--light-gray);
+}
+
+/* Core Mechanics Section */
+.core-mechanics {
+    max-width: 1200px;
+    margin: 0 auto 5rem;
+    padding: 0 2rem;
+}
+
+.mechanics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.mechanic-card {
+    background-color: rgba(30, 30, 30, 0.9);
+    border-radius: 10px;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    animation: fadeInUp 0.8s ease-out forwards;
+    opacity: 0;
+    animation-delay: var(--delay);
+    border-top: 4px solid var(--primary);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.mechanic-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+}
+
+.mechanic-icon {
+    font-size: 3rem;
+    color: var(--secondary);
+    margin-bottom: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.mechanic-card:hover .mechanic-icon {
+    transform: scale(1.2) rotate(10deg);
+}
+
+.mechanic-card h3 {
+    font-family: 'minecraft-regular';
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: white;
+}
+
+.mechanic-card p {
+    font-size: 1rem;
+    color: var(--light-gray);
+    margin-bottom: 1.5rem;
+}
+
+.mechanic-details {
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    padding: 1rem;
+    margin-top: 1.5rem;
+}
+
+.detail-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.detail-item:last-child {
+    border-bottom: none;
+}
+
+.detail-label {
+    font-family: 'minecraft-regular';
+    color: var(--light-gray);
+    font-size: 0.9rem;
+}
+
+.detail-value1 {
+    font-family: 'Press Start 2P', cursive;
+    color: white;
+    font-size: 0.8rem;
+}
+
+.detail-value2 {
+    font-family: 'Press Start 2P', cursive;
+    color: white;
+    font-size: 0.7rem;
+    padding-top: 4px;
+}
+
+.detail-value3 {
+    font-family: 'Press Start 2P', cursive;
+    color: white;
+    font-size: 0.5rem;
+    padding-top: 7px;
+}
+
+.detail-value {
+    font-family: 'Press Start 2P', cursive;
+    color: white;
+    font-size: 0.8rem;
+}
+/* Advanced Mechanics Section */
+.advanced-mechanics {
+    max-width: 1200px;
+    margin: 0 auto 5rem;
+    padding: 0 2rem;
+}
+
+.advanced-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 3rem;
+    margin-top: 3rem;
+}
+
+.advanced-card {
+    background-color: rgba(30, 30, 30, 0.9);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    border-top: 4px solid var(--accent);
+}
+
+.advanced-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+}
+
+.advanced-image {
+    height: 200px;
+    overflow: hidden;
+}
+
+.advanced-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.advanced-card:hover .advanced-image img {
+    transform: scale(1.05);
+}
+
+.advanced-content {
+    padding: 1.5rem;
+}
+
+.advanced-content h3 {
+    font-family: 'minecraft-regular';
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: white;
+}
+
+.advanced-details {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+}
+
+.advanced-details .detail {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: rgba(90, 143, 61, 0.2);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+}
+
+.advanced-details .detail i {
+    color: var(--secondary);
+}
+
+.advanced-content p {
+    font-size: 1rem;
+    color: var(--light-gray);
+    margin-bottom: 1.5rem;
+}
+
+.difficulty {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.difficulty-stars {
+    color: var(--secondary);
+}
+
+/* Mob Mechanics Section */
+.mob-mechanics {
+    max-width: 1200px;
+    margin: 0 auto 5rem;
+    padding: 0 2rem;
+}
+
+.mob-table-container {
+    overflow-x: auto;
+    margin-top: 2rem;
+    background-color: rgba(30, 30, 30, 0.9);
+    border-radius: 10px;
+    padding: 1rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.mob-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'minecraft-regular';
+}
+
+.mob-table th {
+    background-color: var(--primary-dark);
+    color: white;
+    padding: 1rem;
+    text-align: left;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.8rem;
+}
+
+.mob-table td {
+    padding: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--light-gray);
+    font-size: 0.9rem;
+}
+
+.mob-table tr:last-child td {
+    border-bottom: none;
+}
+
+.mob-table tr:hover td {
+    background-color: rgba(90, 143, 61, 0.1);
+    color: white;
+}
+
+.mob-icon {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: white;
+}
+
+.mob-icon i {
+    font-size: 1.2rem;
+    color: var(--secondary);
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .mechanics-hero {
+        height: 60vh;
+        min-height: 500px;
+    }
+    
+    .advanced-grid {
+        grid-template-columns: 1fr;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .mechanics-hero {
+        height: 50vh;
+        min-height: 400px;
+    }
+    
+    .mechanics-hero .hero-text h1 {
+        font-size: 2.5rem;
+    }
+    
+    .mechanics-hero .hero-text h2 {
+        font-size: 1.3rem;
+    }
+    
+    .mob-table th, 
+    .mob-table td {
+        padding: 0.5rem;
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .mechanics-hero {
+        height: 40vh;
+        min-height: 300px;
+    }
+    
+    .mechanics-hero .hero-text h1 {
+        font-size: 2rem;
+    }
+    
+    .mechanics-hero .hero-text h2 {
+        font-size: 1rem;
+    }
+    
+    .mechanics-hero .hero-text p {
+        font-size: 0.9rem;
+    }
+    
+    .mechanics-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .mob-table {
+        font-size: 0.7rem;
+    }
+    
+    .mob-icon {
+        flex-direction: column;
+        gap: 0.2rem;
+    }
+}
+
+/* Shared Animations (from previous pages) */
+@keyframes fadeInUp {
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes imageGrow {
+    from {
+        transform: scale(1.1);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes contentFadeIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -40%);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+
+/* Trivia Page Specific Styles */
+.trivia-main {
+    background-color: var(--dark);
+    color: var(--light);
+}
+
+.trivia-hero {
+    position: relative;
+    height: 70vh;
+    min-height: 600px;
+    margin-bottom: 3rem;
+    overflow: hidden;
+}
+
+.trivia-hero .hero-image-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.trivia-hero .hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit:cover;
+    animation: imageGrow 1.6s ease-out forwards;
+}
+
+.trivia-hero .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.8) 100%);
+}
+
+.trivia-hero .hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 1200px;
+    text-align: center;
+    z-index: 2;
+    animation: contentFadeIn 2s ease-out forwards;
+}
+
+.trivia-hero .hero-text h1 {
+    font-family: 'minecraft-font';
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    margin-bottom: 1rem;
+    color: var(--secondary);
+    text-shadow: 4px 4px 0 #000;
+    line-height: 1.2;
+}
+
+.trivia-hero .hero-text h2 {
+    font-family: 'minecraft-regular';
+    font-size: clamp(1.2rem, 3vw, 1.8rem);
+    margin-bottom: 2rem;
+    color: white;
+    text-shadow: 2px 2px 0 #000;
+}
+
+.trivia-hero .hero-text p {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    max-width: 800px;
+    margin: 0 auto 2rem;
+    color: var(--light-gray);
+}
+
+/* Categories Section */
+.trivia-categories {
+    max-width: 1200px;
+    margin: 0 auto 5rem;
+    padding: 0 2rem;
+}
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.category-card {
+    background-color: rgba(30, 30, 30, 0.9);
+    border-radius: 10px;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    animation: fadeInUp 0.8s ease-out forwards;
+    opacity: 0;
+    animation-delay: var(--delay);
+    border-top: 4px solid var(--secondary);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.category-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+}
+
+.category-icon {
+    font-size: 3rem;
+    color: var(--secondary);
+    margin-bottom: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.category-card:hover .category-icon {
+    transform: scale(1.2) rotate(10deg);
+}
+
+.category-card h3 {
+    font-family: 'minecraft-regular';
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: white;
+}
+
+.category-card p {
+    font-size: 1rem;
+    color: var(--light-gray);
+    margin-bottom: 1.5rem;
+}
+
+.category-badge {
+    position: absolute;
+    top: 5px;
+    right: -30px;
+    background-color: var(--accent);
+    color: white;
+    padding: 3px 30px;
+    font-size: 0.8rem;
+    transform: rotate(45deg);
+    width: 120px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.category-badge3 {
+    position: absolute;
+    top: 15px;
+    right: -30px;
+    background-color: var(--accent);
+    color: white;
+    padding: 3px 30px;
+    font-size: 0.8rem;
+    transform: rotate(45deg);
+    width: 120px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+/* Fun Facts Accordion */
+.fun-facts {
+    max-width: 1200px;
+    margin: 0 auto 5rem;
+    padding: 0 2rem;
+}
+
+.facts-accordion {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.fact-item {
+    margin-bottom: 1rem;
+    background-color: rgba(30, 30, 30, 0.9);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.fact-checkbox {
+    display: none;
+}
+
+.fact-header {
+    display: flex;
+    align-items: center;
+    padding: 1.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    position: relative;
+}
+
+.fact-header:hover {
+    background-color: rgba(90, 143, 61, 0.1);
+}
+
+.fact-icon {
+    font-size: 1.5rem;
+    color: var(--secondary);
+    margin-right: 1.5rem;
+    flex-shrink: 0;
+}
+
+.fact-header h3 {
+    font-family: 'minecraft-regular';
+    font-size: 1.2rem;
+    color: white;
+    margin-right: auto;
+}
+
+.fact-toggle {
+    font-size: 1.2rem;
+    color: var(--secondary);
+    transition: transform 0.3s ease;
+}
+
+.fact-checkbox:checked ~ .fact-header .fact-toggle {
+    transform: rotate(180deg);
+}
+
+.fact-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    padding: 0 1.5rem;
+}
+
+.fact-checkbox:checked ~ .fact-content {
+    max-height: 300px;
+    padding: 0 1.5rem 1.5rem;
+}
+
+.fact-content p {
+    font-size: 1rem;
+    color: var(--light-gray);
+    line-height: 1.6;
+}
+
+/* Quote Section */
+.quote-section {
+    max-width: 1200px;
+    margin: 0 auto 5rem;
+    padding: 0 2rem;
+}
+
+.quote-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.quote-card {
+    background-color: rgba(30, 30, 30, 0.9);
+    border-radius: 10px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+    border-left: 4px solid var(--secondary);
+}
+
+.quote-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.quote-text {
+    font-style: italic;
+    font-size: 1.1rem;
+    color: var(--light-gray);
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.quote-text::before {
+    font-size: 3rem;
+    color: var(--secondary);
+    opacity: 0.3;
+    position: absolute;
+    top: -20px;
+    left: -15px;
+}
+
+.quote-author {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.author-image img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--secondary);
+}
+
+.author-info h4 {
+    font-family: 'minecraft-regular';
+    font-size: 1.1rem;
+    color: white;
+    margin-bottom: 0.3rem;
+}
+
+.author-info p {
+    font-size: 0.9rem;
+    color: var(--light-gray);
+}
+
+/* Records Section */
+.record-section {
+    max-width: 1500px;
+    margin: 0 auto 5rem;
+    padding: 0 2rem;
+}
+
+.record-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.record-card {
+    background-color: rgba(30, 30, 30, 0.9);
+    border-radius: 10px;
+    padding: 1.5rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    transition: all 0.3s ease;
+    border-bottom: 4px solid var(--secondary);
+}
+
+.record-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.record-icon {
+    font-size: 1.8rem;
+    color: var(--secondary);
+    background-color: rgba(90, 143, 61, 0.2);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+}
+
+.record-card:hover .record-icon {
+    background-color: var(--secondary);
+    color: var(--dark);
+    transform: rotate(15deg);
+}
+
+.record-content h3 {
+    font-family: 'minecraft-regular';
+    font-size: 1.2rem;
+    color: white;
+    margin-bottom: 0.5rem;
+}
+
+.record-content p {
+    font-size: 0.9rem;
+    color: var(--light-gray);
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .trivia-hero {
+        height: 60vh;
+        min-height: 500px;
+    }
+    
+    .quote-grid {
+        grid-template-columns: 1fr;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .trivia-hero {
+        height: 50vh;
+        min-height: 400px;
+    }
+    
+    .trivia-hero .hero-text h1 {
+        font-size: 2.5rem;
+    }
+    
+    .trivia-hero .hero-text h2 {
+        font-size: 1.3rem;
+    }
+    
+    .fact-header {
+        padding: 1rem;
+    }
+    
+    .fact-header h3 {
+        font-size: 1rem;
+    }
+    
+    .fact-icon {
+        margin-right: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .trivia-hero {
+        height: 40vh;
+        min-height: 300px;
+    }
+    
+    .trivia-hero .hero-text h1 {
+        font-size: 2rem;
+    }
+    
+    .trivia-hero .hero-text h2 {
+        font-size: 1rem;
+    }
+    
+    .trivia-hero .hero-text p {
+        font-size: 0.9rem;
+    }
+    
+    .category-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .record-cards {
+        grid-template-columns: 1fr;
+    }
+    
+    .quote-author {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .author-image {
+        margin-bottom: 0.5rem;
+    }
+}
+
+/* Shared Animations (from previous pages) */
+@keyframes fadeInUp {
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes imageGrow {
+    from {
+        transform: scale(1.1);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes contentFadeIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -40%);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+/* About Page Styles */
+.about-main {
+    background-color: var(--dark);
+    color: var(--light);
+}
+
+.about-hero {
+    position: relative;
+    height: 60vh;
+    min-height: 500px;
+    margin-bottom: 3rem;
+    overflow: hidden;
+}
+
+.about-hero .hero-image-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.about-hero .hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.about-hero .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.7) 100%);
+}
+
+.about-hero .hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 1200px;
+    text-align: center;
+    z-index: 2;
+}
+
+.about-hero .hero-text h1 {
+    font-family: 'minecraft-font';
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    margin-bottom: 1rem;
+    color: var(--secondary);
+    text-shadow: 4px 4px 0 #000;
+}
+
+.about-hero .hero-text h2 {
+    font-family: 'minecraft-regular';
+    font-size: clamp(1.2rem, 3vw, 1.8rem);
+    margin-bottom: 1.5rem;
+    color: white;
+    text-shadow: 2px 2px 0 #000;
+}
+
+.about-hero .hero-text p {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    max-width: 800px;
+    margin: 0 auto;
+    color: var(--light-gray);
+}
+
+/* Our Story Section */
+.our-story {
+    max-width: 1200px;
+    margin: 0 auto 5rem;
+    padding: 0 2rem;
+}
+
+.story-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    margin-top: 3rem;
+}
+
+.story-text {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--light-gray);
+}
+
+.story-text p {
+    margin-bottom: 1.5rem;
+}
+
+.story-image {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    border: 4px solid var(--primary);
+}
+
+.story-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Team Section */
+.team-section {
+    max-width: 1200px;
+    margin: 0 auto 5rem;
+    padding: 0 2rem;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.team-card {
+    background-color: rgba(30, 30, 30, 0.9);
+    border-radius: 10px;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    border-top: 4px solid var(--secondary);
+}
+
+.team-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.team-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto 1.5rem;
+    border: 4px solid var(--primary);
+}
+
+.team-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.team-card h3 {
+    font-family: 'minecraft-regular';
+    font-size: 1.5rem;
+    color: white;
+    margin-bottom: 0.5rem;
+}
+
+.team-role {
+    color: var(--secondary);
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.8rem;
+    margin-bottom: 1rem;
+}
+
+.team-bio {
+    font-size: 0.9rem;
+    color: var(--light-gray);
+}
+
+/* Mission Section */
+.mission-section {
+    max-width: 1200px;
+    margin: 0 auto 5rem;
+    padding: 0 2rem;
+}
+
+.mission-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.mission-card {
+    background-color: rgba(30, 30, 30, 0.9);
+    border-radius: 10px;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    border-bottom: 4px solid var(--primary);
+}
+
+.mission-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.mission-icon {
+    font-size: 2.5rem;
+    color: var(--secondary);
+    margin-bottom: 1.5rem;
+}
+
+.mission-card h3 {
+    font-family: 'minecraft-regular';
+    font-size: 1.5rem;
+    color: white;
+    margin-bottom: 1rem;
+}
+
+.mission-card p {
+    font-size: 1rem;
+    color: var(--light-gray);
+}
+
+/* Contact Section */
+.contact-section {
+    max-width: 1200px;
+    margin: 0 auto 5rem;
+    padding: 0 2rem;
+}
+
+.contact-methods {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.contact-card {
+    background-color: rgba(30, 30, 30, 0.9);
+    border-radius: 10px;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    border-left: 4px solid var(--secondary);
+}
+
+.contact-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.contact-icon {
+    font-size: 2.5rem;
+    color: var(--secondary);
+    margin-bottom: 1.5rem;
+}
+
+.contact-card h3 {
+    font-family: 'minecraft-regular';
+    font-size: 1.5rem;
+    color: white;
+    margin-bottom: 0.5rem;
+}
+
+.contact-card p {
+    font-size: 1rem;
+    color: var(--light-gray);
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .story-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .story-image {
+        order: -1;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-hero {
+        height: 50vh;
+        min-height: 400px;
+    }
+    
+    .team-grid, .mission-grid, .contact-methods {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 576px) {
+    .about-hero {
+        height: 40vh;
+        min-height: 300px;
+    }
+    
+    .about-hero .hero-text h1 {
+        font-size: 2rem;
+    }
+    
+    .about-hero .hero-text h2 {
+        font-size: 1.2rem;
+    }
+}
